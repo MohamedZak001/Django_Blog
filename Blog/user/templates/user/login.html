@@ -1,9 +1,12 @@
 {% extends 'app/base.html' %}
+{% load bootstrap %}
+
 {% block content %}
+
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-outline-info" type="submit">
+    {{ form|bootstrap_horizontal:'col-lg-6'}}
+    <button class="btn py-2 mt-3 btn-outline-info" type="submit">
         Login
     </button>
 </form>
