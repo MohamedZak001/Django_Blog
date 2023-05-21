@@ -1,10 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'app/base.html' %}
 {% block content %}
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button class="btn btn-outline-info" type="submit">
-        Sign Up
+        Login
     </button>
 </form>
 {% endblock %}

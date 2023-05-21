@@ -15,7 +15,7 @@ def Register(request):
             return redirect('blog-home')
     else:
         form = Reg()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'user/register.html', {'form': form})
 
 
 @login_required
@@ -37,4 +37,4 @@ def profile(request):
         'user_form':user_form,
         'profile_form':profile_form,
     }
-    return render(request, 'profile.html',contx)
+    return render(request, 'user/profile.html',contx)

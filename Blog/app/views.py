@@ -9,13 +9,13 @@ from .forms import create_post
 
 class list_posts(generic.ListView):
     model = Post
-    template_name = 'home.html'
+    template_name = 'app/home.html'
     context_object_name = 'posts'
     paginate_by = 5
 
 class user_list_posts(generic.ListView):
     model = Post
-    template_name = 'user_posts.html'
+    template_name = 'app/user_posts.html'
     context_object_name = 'posts'
     paginate_by = 5
 
@@ -24,7 +24,7 @@ class user_list_posts(generic.ListView):
         return Post.objects.filter(author=user).order_by('-date')
 class detail_post(generic.DetailView):
     model = Post
-    template_name = 'deatil-post.html'
+    template_name = 'app/deatil-post.html'
 
 
 
@@ -33,7 +33,7 @@ class post(LoginRequiredMixin,generic.CreateView):
     fields=[
         'title','content',
     ]
-    template_name = 'create_post.html'
+    template_name = 'app/create_post.html'
     context_object_name = 'form'
 
     def form_valid(self,form):
@@ -45,7 +45,7 @@ class updata(LoginRequiredMixin,UserPassesTestMixin,generic.UpdateView):
     fields=[
         'title','content',
     ]
-    template_name = 'create_post.html'
+    template_name = 'app/create_post.html'
     context_object_name = 'form'
 
     def form_valid(self,form):
@@ -59,7 +59,7 @@ class updata(LoginRequiredMixin,UserPassesTestMixin,generic.UpdateView):
         return False
 class delete(LoginRequiredMixin,UserPassesTestMixin,generic.DeleteView):
     model = Post
-    template_name = 'delete-post.html'
+    template_name = 'app/delete-post.html'
     context_object_name = 'form'
     success_url = '/'
 
@@ -73,4 +73,4 @@ class delete(LoginRequiredMixin,UserPassesTestMixin,generic.DeleteView):
 
 
 def About(request):
-    return render(request, 'about.html')
+    return render(request, 'app/about.html')
