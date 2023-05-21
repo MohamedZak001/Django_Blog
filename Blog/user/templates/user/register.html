@@ -1,11 +1,11 @@
-{% extends 'base.html' %}
-
+{% extends 'app/base.html' %}
+{% load bootstrap %}
 {% block content %}
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|bootstrap_horizontal:'col-lg-6' }}
     <button class="btn btn-outline-info" type="submit">
-        Delete
+        Sign Up
     </button>
 </form>
 {% endblock %}
